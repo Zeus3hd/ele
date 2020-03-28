@@ -113,6 +113,7 @@ const NavWrapper = styled(animated.nav)`
 `;
 const NavLinks = styled.ul`
   background: ${colors.blue + "aa"};
+  filter: grayscale(100%);
   width: 50%;
   display: flex;
   flex-direction: column;
