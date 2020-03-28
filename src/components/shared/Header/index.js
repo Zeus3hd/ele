@@ -28,7 +28,7 @@ const Header = () => {
   const navShow = useSpring({
     right: toggleNav ? "-100%" : "0%",
     from: { right: toggleNav ? "0%" : "-100%" },
-    config: config.default
+    config: config.gentle
   });
 
   return (
