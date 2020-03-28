@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   HeaderContainer,
   HeaderRight,
@@ -12,14 +12,25 @@ import {
   HeaderLeftTitleLady,
   HeaderLeftLinksList,
   HeaderLeftLinkListItem,
-  HeaderLeftLink
+  HeaderLeftLink,
+  NavWrapper,
+  NavLinks,
+  NavListItem,
+  NavListLink
 } from "./index.style";
 import headerbg from "../../../img/headerbg.jpg";
 import duaImage from "../../../img/headermulti.png";
 import flowersImage from "../../../img/headerflower.jpg";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
-// import { useSpring, config } from "react-spring";
+import { useSpring, config } from "react-spring";
 const Header = () => {
+  const [toggleNav, setToggleNav] = useState(true);
+  const navShow = useSpring({
+    right: toggleNav ? "-100%" : "0%",
+    from: { right: toggleNav ? "0%" : "-100%" },
+    config: config.default
+  });
+
   return (
     <HeaderContainer background={headerbg}>
       <HeaderLeft>
@@ -42,10 +53,26 @@ const Header = () => {
       </HeaderLeft>
       <HeaderRight>
         <HeaderRightImg src={duaImage} />
-        <MenuButton>
+        <MenuButton onClick={() => setToggleNav(!toggleNav)}>
           <MenuIcon icon={faBars} />
         </MenuButton>
       </HeaderRight>
+      <NavWrapper style={navShow}>
+        <NavLinks>
+          <NavListItem>
+            <NavListLink>Home Page</NavListLink>
+          </NavListItem>
+          <NavListItem>
+            <NavListLink>Dresses Collection</NavListLink>
+          </NavListItem>
+          <NavListItem>
+            <NavListLink>Coats Collection</NavListLink>
+          </NavListItem>
+          <NavListItem>
+            <NavListLink>Skirts Collection</NavListLink>
+          </NavListItem>
+        </NavLinks>
+      </NavWrapper>
     </HeaderContainer>
   );
 };

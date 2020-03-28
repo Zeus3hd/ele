@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
+import { animated } from "react-spring";
 const colors = {
   pink: "#FABEBD",
   blue: "#BBDFDB",
@@ -33,6 +33,7 @@ const MenuButton = styled.button`
   cursor: pointer;
   background: transparent;
   border: none;
+  z-index: 999;
 `;
 const MenuIcon = styled(FontAwesomeIcon)`
   font-size: 1.5rem;
@@ -102,6 +103,38 @@ const HeaderLeftLink = styled.a`
     font-size: 1.5rem;
   }
 `;
+const NavWrapper = styled(animated.nav)`
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(4px);
+  display: flex;
+  justify-content: flex-end;
+`;
+const NavLinks = styled.ul`
+  background: ${colors.blue + "aa"};
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+`;
+const NavListItem = styled.li`
+  cursor: pointer;
+  border-bottom: 3px solid rgba(0, 0, 0, 0);
+  transition: 0.4s;
+  &:hover {
+    border-bottom: 3px solid ${colors.pink};
+  }
+`;
+const NavListLink = styled.a`
+  color: ${colors.black};
+  font-size: 2rem;
+  font-weight: bold;
+`;
 
 export {
   HeaderContainer,
@@ -116,5 +149,9 @@ export {
   HeaderLeftTitleLady,
   HeaderLeftLinksList,
   HeaderLeftLinkListItem,
-  HeaderLeftLink
+  HeaderLeftLink,
+  NavWrapper,
+  NavLinks,
+  NavListItem,
+  NavListLink
 };
