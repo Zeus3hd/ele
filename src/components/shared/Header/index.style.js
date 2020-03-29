@@ -19,7 +19,6 @@ const HeaderRight = styled.div`
   background-size: auto 100%;
   background-blend-mode: multiply;
   background-position: right bottom;
-  background-attachment: fixed;
   @media (max-width: 900px) {
     background-size: contain;
   }
