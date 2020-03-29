@@ -99,7 +99,7 @@ const MenuIcon = styled(FontAwesomeIcon)`
 const NavWrapper = styled(animated.nav)`
   position: fixed;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   backdrop-filter: blur(4px);
   display: flex;
   justify-content: flex-end;
@@ -133,7 +133,7 @@ const NavListItem = styled.li`
 `;
 const NavListLink = styled.a`
   color: ${colors.black};
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: bold;
 `;
 export {
