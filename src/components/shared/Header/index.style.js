@@ -8,11 +8,13 @@ const colors = {
 };
 const HeaderContainer = styled.header`
   height: 100vh;
-  width: 100%;
   background: url(${({ background }) => background}) no-repeat;
   background-size: cover;
   background-position: center;
   display: flex;
+  @media (max-width: 900px) {
+    flex-direction: column;
+  }
 `;
 const HeaderRight = styled.div`
   flex: 1;
@@ -20,6 +22,9 @@ const HeaderRight = styled.div`
   background-size: auto 100%;
   background-blend-mode: multiply;
   background-position: right bottom;
+  @media (max-width: 900px) {
+    background-size: contain;
+  }
 `;
 const HeaderLeft = styled.div`
   flex: 1;
@@ -36,17 +41,17 @@ const HeaderLeftTitleContainer = styled.div`
   display: flex;
   flex-direction: column;
   color: ${colors.black};
-  z-index: 2;
+  z-index: 0;
 `;
 const HeaderLeftTitleElegant = styled.p`
-  font-size: 4rem;
+  font-size: 3rem;
   margin: 0;
   font-weight: bolder;
   letter-spacing: 0.8rem;
   border-bottom: 10px solid rgba(53, 53, 53, 1);
 `;
 const HeaderLeftTitleLady = styled.p`
-  font-size: 4rem;
+  font-size: 3rem;
   margin: 0;
   font-weight: bolder;
   letter-spacing: 0.8rem;
@@ -97,15 +102,17 @@ const MenuIcon = styled(FontAwesomeIcon)`
 const NavWrapper = styled(animated.nav)`
   position: fixed;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   backdrop-filter: blur(4px);
   display: flex;
   justify-content: flex-end;
+  top: 0;
 `;
 const NavLinks = styled.ul`
   background: ${colors.blue + "aa"};
   filter: grayscale(100%);
   width: 50%;
+  min-width: 300px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -113,6 +120,11 @@ const NavLinks = styled.ul`
   margin: 0;
   padding: 0;
   list-style-type: none;
+  z-index: 10;
+  @media (max-width: 900px) {
+    width: 100%;
+    background: ${colors.blue};
+  }
 `;
 const NavListItem = styled.li`
   cursor: pointer;
