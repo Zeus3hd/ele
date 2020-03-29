@@ -8,9 +8,6 @@ const colors = {
 };
 const HeaderContainer = styled.header`
   height: 100vh;
-  background: url(${({ background }) => background}) no-repeat;
-  background-size: cover;
-  background-position: center;
   display: flex;
   @media (max-width: 900px) {
     flex-direction: column;
