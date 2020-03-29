@@ -16,44 +16,21 @@ const HeaderContainer = styled.header`
 `;
 const HeaderRight = styled.div`
   flex: 1;
-  display: flex;
-  justify-content: flex-end;
-  position: relative;
-`;
-const HeaderRightImg = styled.img`
-  height: 100%;
-  mix-blend-mode: multiply;
-`;
-
-const MenuButton = styled.button`
-  position: absolute;
-  right: 0;
-  top: 0;
-  margin: 1rem;
-  cursor: pointer;
-  background: transparent;
-  border: none;
-  z-index: 999;
-`;
-const MenuIcon = styled(FontAwesomeIcon)`
-  font-size: 1.5rem;
-  color: ${colors.black};
+  background: ${colors.blue} url(${({ background }) => background}) no-repeat;
+  background-size: auto 100%;
+  background-blend-mode: multiply;
+  background-position: right bottom;
 `;
 const HeaderLeft = styled.div`
   flex: 1;
-  display: grid;
-  position: relative;
-  align-items: center;
+  background: ${colors.pink} url(${({ background }) => background}) no-repeat;
+  background-blend-mode: multiply;
+  background-size: 80% auto;
+  background-position: center center;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
-`;
-const HeaderLeftImg = styled.img`
-  width: 60%;
-  min-width: 500px;
-  mix-blend-mode: multiply;
-  position: absolute;
-  left: 0;
-  top: 0;
-  opacity: 0.8;
+  align-items: center;
 `;
 const HeaderLeftTitleContainer = styled.div`
   display: flex;
@@ -78,7 +55,7 @@ const HeaderLeftTitleLady = styled.p`
   text-shadow: 0px 0px 2px rgba(0, 0, 0, 0.1);
 `;
 const HeaderLeftLinksList = styled.ul`
-  position: absolute;
+  align-self: flex-start;
   bottom: 2rem;
   margin: 0;
   padding: 0;
@@ -102,6 +79,20 @@ const HeaderLeftLink = styled.a`
     color: ${colors.blue};
     font-size: 1.5rem;
   }
+`;
+const MenuButton = styled.button`
+  position: absolute;
+  right: 0;
+  top: 0;
+  margin: 1rem;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  z-index: 999;
+`;
+const MenuIcon = styled(FontAwesomeIcon)`
+  font-size: 1.5rem;
+  color: ${colors.black};
 `;
 const NavWrapper = styled(animated.nav)`
   position: fixed;
@@ -136,21 +127,18 @@ const NavListLink = styled.a`
   font-size: 2rem;
   font-weight: bold;
 `;
-
 export {
   HeaderContainer,
   HeaderRight,
   HeaderLeft,
-  HeaderRightImg,
-  MenuIcon,
-  MenuButton,
-  HeaderLeftImg,
   HeaderLeftTitleContainer,
   HeaderLeftTitleElegant,
   HeaderLeftTitleLady,
   HeaderLeftLinksList,
   HeaderLeftLinkListItem,
   HeaderLeftLink,
+  MenuButton,
+  MenuIcon,
   NavWrapper,
   NavLinks,
   NavListItem,

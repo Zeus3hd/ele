@@ -3,16 +3,14 @@ import {
   HeaderContainer,
   HeaderRight,
   HeaderLeft,
-  HeaderRightImg,
-  MenuIcon,
-  MenuButton,
-  HeaderLeftImg,
   HeaderLeftTitleContainer,
   HeaderLeftTitleElegant,
   HeaderLeftTitleLady,
   HeaderLeftLinksList,
   HeaderLeftLinkListItem,
   HeaderLeftLink,
+  MenuButton,
+  MenuIcon,
   NavWrapper,
   NavLinks,
   NavListItem,
@@ -33,8 +31,7 @@ const Header = () => {
 
   return (
     <HeaderContainer background={headerbg}>
-      <HeaderLeft>
-        <HeaderLeftImg src={flowersImage} />
+      <HeaderLeft background={flowersImage}>
         <HeaderLeftTitleContainer>
           <HeaderLeftTitleElegant>ELEGANT</HeaderLeftTitleElegant>
           <HeaderLeftTitleLady>LADY</HeaderLeftTitleLady>
@@ -51,28 +48,27 @@ const Header = () => {
           </HeaderLeftLinkListItem>
         </HeaderLeftLinksList>
       </HeaderLeft>
-      <HeaderRight>
-        <HeaderRightImg src={duaImage} />
+      <HeaderRight background={duaImage}>
         <MenuButton onClick={() => setToggleNav(!toggleNav)}>
           <MenuIcon icon={faBars} />
         </MenuButton>
+        <NavWrapper style={navShow}>
+          <NavLinks>
+            <NavListItem>
+              <NavListLink>Home Page</NavListLink>
+            </NavListItem>
+            <NavListItem>
+              <NavListLink>Dresses Collection</NavListLink>
+            </NavListItem>
+            <NavListItem>
+              <NavListLink>Coats Collection</NavListLink>
+            </NavListItem>
+            <NavListItem>
+              <NavListLink>Skirts Collection</NavListLink>
+            </NavListItem>
+          </NavLinks>
+        </NavWrapper>
       </HeaderRight>
-      <NavWrapper style={navShow}>
-        <NavLinks>
-          <NavListItem>
-            <NavListLink>Home Page</NavListLink>
-          </NavListItem>
-          <NavListItem>
-            <NavListLink>Dresses Collection</NavListLink>
-          </NavListItem>
-          <NavListItem>
-            <NavListLink>Coats Collection</NavListLink>
-          </NavListItem>
-          <NavListItem>
-            <NavListLink>Skirts Collection</NavListLink>
-          </NavListItem>
-        </NavLinks>
-      </NavWrapper>
     </HeaderContainer>
   );
 };
