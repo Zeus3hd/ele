@@ -5,7 +5,8 @@ import {
   HeaderLeftTitleElegant,
   HeaderLeftTitleLady,
   PromoPinkContainer,
-  PromoBlueContainer
+  PromoBlueContainer,
+  Circle
 } from "./index.style";
 import duaImage from "../../../img/promo.png";
 import promoPink from "../../../img/promo-pink.jpg";
@@ -29,6 +30,7 @@ const Promotion = () => {
     from: { opacity: isVisible ? "1" : "0" },
     config: config.molasses
   });
+
   useEffect(() => {
     let observer = new IntersectionObserver(el => {
       el[0].isIntersecting ? setVisible(true) : setVisible(false);
@@ -42,6 +44,7 @@ const Promotion = () => {
         <HeaderLeftTitleElegant>ELEGANT</HeaderLeftTitleElegant>
         <HeaderLeftTitleLady>LADY</HeaderLeftTitleLady>
       </HeaderLeftTitleContainer>
+      <Circle />
       <PromoPinkContainer
         style={animatePromoPink}
         ref={pinkRef}

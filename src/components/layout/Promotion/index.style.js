@@ -12,6 +12,7 @@ const Wrapper = styled.section`
   display: flex;
   flex-direction: column;
   position: relative;
+  overflow: hidden;
 `;
 const HeaderLeftTitleContainer = styled.div`
   align-self: flex-end;
@@ -41,7 +42,6 @@ const PromoPinkContainer = styled(animated.div)`
   background: url(${({ bg }) => bg}) no-repeat;
   background-size: cover;
   background-position: center top;
-
   position: absolute;
   width: 50%;
   height: 400px;
@@ -58,11 +58,42 @@ const PromoBlueContainer = styled(animated.div)`
   bottom: 0%;
   right: 0;
 `;
+const Circle = styled(animated.div)`
+  width: 50vh;
+  height: 50vh;
+  border-radius: 50vh;
+  border: 3rem solid ${colors.pink};
+  position: absolute;
+  mix-blend-mode: darken;
+  z-index: -2;
+  animation: anim 50s infinite;
+
+  @keyframes anim {
+    0% {
+      top: 0;
+      left: 0;
+    }
+    33% {
+      top: 20%;
+      left: 50%;
+    }
+    77% {
+      top: 40%;
+      left: 70%;
+      border: 3rem solid ${colors.blue};
+    }
+    100% {
+      top: 0;
+      left: 0;
+    }
+  }
+`;
 export {
   Wrapper,
   HeaderLeftTitleContainer,
   HeaderLeftTitleElegant,
   HeaderLeftTitleLady,
   PromoPinkContainer,
-  PromoBlueContainer
+  PromoBlueContainer,
+  Circle
 };
