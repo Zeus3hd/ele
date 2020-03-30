@@ -79,27 +79,6 @@ const Circle = styled(animated.div)`
   position: absolute;
   mix-blend-mode: darken;
   z-index: -2;
-  animation: anim 50s infinite;
-
-  @keyframes anim {
-    0% {
-      top: 0;
-      left: 0;
-    }
-    33% {
-      top: 20%;
-      left: 50%;
-    }
-    77% {
-      top: 40%;
-      left: 70%;
-      border: 3rem solid ${colors.blue};
-    }
-    100% {
-      top: 0;
-      left: 0;
-    }
-  }
 `;
 export {
   Wrapper,

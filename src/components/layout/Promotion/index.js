@@ -20,7 +20,11 @@ const Promotion = () => {
       transform: isVisible ? "translate(-50%,-50%)" : "translate(-10%,50%)"
     },
     from: { opacity: isVisible ? "1" : "0" },
-    config: config.wobbly
+    config: {
+      mass: 1,
+      tension: 120,
+      friction: 60
+    }
   });
   const animatePromoBlue = useSpring({
     to: {
@@ -28,7 +32,29 @@ const Promotion = () => {
       transform: isVisible ? "translate(-30%,-10%)" : "translate(-10%,50%)"
     },
     from: { opacity: isVisible ? "1" : "0" },
-    config: config.molasses
+    config: {
+      mass: 1,
+      tension: 120,
+      friction: 60
+    }
+  });
+
+  const animateCircle = useSpring({
+    to: {
+      top: isVisible ? "50%" : "0%",
+      left: isVisible ? "50%" : "0%",
+      transform: isVisible ? "translate(-50%,-50%)" : "translate(0%,0%)"
+    },
+    from: {
+      top: "0%",
+      left: "0%",
+      transform: "translate(0%,0%)"
+    },
+    config: {
+      mass: 1,
+      tension: 220,
+      friction: 200
+    }
   });
 
   useEffect(() => {
@@ -44,7 +70,7 @@ const Promotion = () => {
         <HeaderLeftTitleElegant>ELEGANT</HeaderLeftTitleElegant>
         <HeaderLeftTitleLady>LADY</HeaderLeftTitleLady>
       </HeaderLeftTitleContainer>
-      <Circle />
+      <Circle style={animateCircle} />
       <PromoPinkContainer
         style={animatePromoPink}
         ref={pinkRef}
