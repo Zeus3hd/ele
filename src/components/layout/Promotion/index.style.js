@@ -21,6 +21,7 @@ const HeaderLeftTitleContainer = styled.div`
   color: ${colors.black};
   margin: 5vw;
   box-sizing: border-box;
+  z-index: 10;
 `;
 const HeaderLeftTitleElegant = styled.p`
   font-size: 3rem;
@@ -47,6 +48,13 @@ const PromoPinkContainer = styled(animated.div)`
   height: 400px;
   top: 50%;
   left: 50%;
+  @media (max-width: 900px) {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    transform: translate(0, 0) !important;
+  }
 `;
 const PromoBlueContainer = styled(animated.div)`
   background: ${colors.blue} url(${({ bg }) => bg}) no-repeat;
@@ -57,6 +65,11 @@ const PromoBlueContainer = styled(animated.div)`
   height: 50%;
   bottom: 0%;
   right: 0;
+  @media (max-width: 900px) {
+    width: 100%;
+    height: 50%;
+    transform: translate(0, 0) !important;
+  }
 `;
 const Circle = styled(animated.div)`
   width: 50vh;
