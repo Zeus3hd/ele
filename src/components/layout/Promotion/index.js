@@ -27,7 +27,7 @@ const Promotion = () => {
       transform: isVisible ? "translate(-30%,-10%)" : "translate(-10%,50%)"
     },
     from: { opacity: isVisible ? "1" : "0" },
-    config: config.wobbly
+    config: config.molasses
   });
   useEffect(() => {
     let observer = new IntersectionObserver(el => {
