@@ -9,6 +9,9 @@ const colors = {
 const Wrapper = styled.div`
   height: 100vh;
   display: flex;
+  @media (max-width: 1024px) {
+    flex-direction: column;
+  }
 `;
 
 const CarouselWrapper = styled.div`
@@ -46,6 +49,12 @@ const TitleContainer = styled.div`
   width: 100%;
   padding: 2rem 4rem;
   box-sizing: border-box;
+  @media (max-width: 1024px) {
+    flex-direction: row;
+    padding: 0;
+    z-index: 0;
+    font-size: 10vw;
+  }
 `;
 const ChiqueText = styled.p`
   margin: 0;
@@ -63,6 +72,10 @@ const SlidesContainer = styled.div`
   bottom: 5rem;
   right: 0;
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  @media (max-width: 1024px) {
+    width: 100%;
+    bottom: 2rem;
+  }
 `;
 const SlidesInnerContainer = styled.div`
   position: relative;
