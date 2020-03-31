@@ -21,9 +21,9 @@ const CarouselWrapper = styled.div`
 const BigImageContainer = styled.div`
   flex: 1;
   background: url(${({ img }) => img}) no-repeat;
-  background-size: 100%;
+  background-size: cover;
   background-position: center;
-  transition: 1s ease-in-out;
+  transition: 0.5s ease-in-out;
 `;
 
 const Circle = styled.div`
