@@ -9,19 +9,20 @@ const colors = {
 const Wrapper = styled.div`
   height: 100vh;
   display: flex;
+  overflow: hidden;
   @media (max-width: 1024px) {
     flex-direction: column;
   }
 `;
 
-const CarouselWrapper = styled.div`
+const CarouselWrapper = styled(animated.div)`
   flex: 1;
   position: relative;
   display: flex;
   align-items: flex-start;
   overflow: hidden;
 `;
-const BigImageContainer = styled.div`
+const BigImageContainer = styled(animated.div)`
   flex: 1;
   background: url(${({ img }) => img}) no-repeat;
   background-size: cover;

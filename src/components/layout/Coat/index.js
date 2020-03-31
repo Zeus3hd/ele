@@ -25,6 +25,7 @@ const Coat = () => {
   const [translateBy, setTranslateBy] = useState(0);
   const [numOfChildren, setNumOfChildren] = useState(0);
   const [slideCount, setSlideCount] = useState(0);
+  const [isVisible, setVisible] = useState(false);
   const animateSlides = useSpring({
     transform: `translateX(-${translateBy}px)`,
     config: config.gentle
@@ -33,7 +34,20 @@ const Coat = () => {
 
   useEffect(() => {
     setNumOfChildren(slideWrap.current.childNodes.length - 1);
+    let observer = new IntersectionObserver(el => {
+      el[0].isIntersecting ? setVisible(true) : setVisible(false);
+    });
+    observer.observe(containerRef.current);
   }, []);
+  const containerRef = useRef();
+  const animateBig = useSpring({
+    transform: isVisible ? "translateX(0%)" : "translateX(-100%)",
+    config: config.gentle
+  });
+  const animateSmall = useSpring({
+    transform: isVisible ? "translateX(0%)" : "translateX(100%)",
+    config: config.gentle
+  });
   const handleCarouselSlide = () => {
     console.log(translateBy);
     console.log(numOfChildren * 300 - 300);
@@ -46,8 +60,8 @@ const Coat = () => {
     }
   };
   return (
-    <Wrapper>
-      <CarouselWrapper>
+    <Wrapper ref={containerRef}>
+      <CarouselWrapper style={animateSmall}>
         <Circle />
         <TitleContainer>
           <ChiqueText>STYLISH</ChiqueText>
@@ -66,7 +80,10 @@ const Coat = () => {
           </SlidesInnerContainer>
         </SlidesContainer>
       </CarouselWrapper>
-      <BigImageContainer img={items[slideCount]}></BigImageContainer>
+      <BigImageContainer
+        img={items[slideCount]}
+        style={animateBig}
+      ></BigImageContainer>
     </Wrapper>
   );
 };
