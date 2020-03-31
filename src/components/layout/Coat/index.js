@@ -13,20 +13,19 @@ import {
   ArrowLeft,
   ArrowLeftIcon
 } from "./index.style";
-import imageOne from "../../../img/img1.jpg";
-import imageTwo from "../../../img/img2.jpg";
-import imageThree from "../../../img/img3.jpg";
-import imageFour from "../../../img/img4.jpg";
+import imageOne from "../../../img/img5.jpg";
+import imageTwo from "../../../img/img6.jpg";
+import imageThree from "../../../img/img7.jpg";
+import imageFour from "../../../img/img8.jpg";
 import { faCaretLeft } from "@fortawesome/free-solid-svg-icons";
 import { useSpring, config } from "react-spring";
 
 const items = [imageOne, imageTwo, imageThree, imageFour];
-const Dress = () => {
+const Coat = () => {
   const [translateBy, setTranslateBy] = useState(0);
   const [numOfChildren, setNumOfChildren] = useState(0);
   const [slideCount, setSlideCount] = useState(0);
   const [isVisible, setVisible] = useState(false);
-
   const animateSlides = useSpring({
     transform: `translateX(-${translateBy}px)`,
     config: config.gentle
@@ -42,11 +41,11 @@ const Dress = () => {
   }, []);
   const containerRef = useRef();
   const animateBig = useSpring({
-    transform: isVisible ? "translateX(0%)" : "translateX(100%)",
+    transform: isVisible ? "translateX(0%)" : "translateX(-100%)",
     config: config.gentle
   });
   const animateSmall = useSpring({
-    transform: isVisible ? "translateX(0%)" : "translateX(-100%)",
+    transform: isVisible ? "translateX(0%)" : "translateX(100%)",
     config: config.gentle
   });
   const handleCarouselSlide = () => {
@@ -65,8 +64,8 @@ const Dress = () => {
       <CarouselWrapper style={animateSmall}>
         <Circle />
         <TitleContainer>
-          <ChiqueText>Chique</ChiqueText>
-          <DressesText>Dresses</DressesText>
+          <ChiqueText>STYLISH</ChiqueText>
+          <DressesText>COATS</DressesText>
         </TitleContainer>
         <SlidesContainer>
           <SlidesInnerContainer ref={slideWrap}>
@@ -89,4 +88,4 @@ const Dress = () => {
   );
 };
 
-export default Dress;
+export default Coat;
