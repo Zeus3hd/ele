@@ -11,7 +11,7 @@ import {
 import duaImage from "../../../img/promo.png";
 import promoPink from "../../../img/promo-pink.jpg";
 import promoBlue from "../../../img/promo-blue.png";
-import { useSpring, config } from "react-spring";
+import { useSpring } from "react-spring";
 const Promotion = () => {
   const [isVisible, setVisible] = useState(false);
   const animatePromoPink = useSpring({
