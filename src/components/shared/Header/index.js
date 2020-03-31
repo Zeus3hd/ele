@@ -44,7 +44,7 @@ const Header = () => {
             <HeaderLeftLink>Coats</HeaderLeftLink>
           </HeaderLeftLinkListItem>
           <HeaderLeftLinkListItem>
-            <HeaderLeftLink>Skirts</HeaderLeftLink>
+            <HeaderLeftLink>Abaya</HeaderLeftLink>
           </HeaderLeftLinkListItem>
         </HeaderLeftLinksList>
       </HeaderLeft>
