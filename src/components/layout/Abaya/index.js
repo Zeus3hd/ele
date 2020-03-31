@@ -13,14 +13,16 @@ import {
   ArrowLeft,
   ArrowLeftIcon
 } from "./index.style";
-import imageOne from "../../../img/img1.jpg";
-import imageTwo from "../../../img/img2.jpg";
-import imageThree from "../../../img/img3.jpg";
-import imageFour from "../../../img/img4.jpg";
+import imageOne from "../../../img/abaya4.jpg";
+import imageTwo from "../../../img/abaya5.jpg";
+import imageThree from "../../../img/abaya6.jpg";
+import imageFour from "../../../img/abaya7.jpg";
+import imageFive from "../../../img/abaya8.jpg";
+import imageSix from "../../../img/abaya9.jpg";
 import { faCaretLeft } from "@fortawesome/free-solid-svg-icons";
 import { useSpring, config } from "react-spring";
 
-const items = [imageOne, imageTwo, imageThree, imageFour];
+const items = [imageOne, imageTwo, imageThree, imageFour, imageFive, imageSix];
 const Abaya = () => {
   const [translateBy, setTranslateBy] = useState(0);
   const [numOfChildren, setNumOfChildren] = useState(0);
@@ -66,8 +68,8 @@ const Abaya = () => {
       <CarouselWrapper style={animateSmall}>
         <Circle />
         <TitleContainer>
-          <ChiqueText>Chique</ChiqueText>
-          <DressesText>Dresses</DressesText>
+          <ChiqueText>Stunning</ChiqueText>
+          <DressesText>Abaya</DressesText>
         </TitleContainer>
         <SlidesContainer>
           <SlidesInnerContainer ref={slideWrap}>
@@ -90,4 +92,4 @@ const Abaya = () => {
   );
 };
 
-export default Skirt;
+export default Abaya;
