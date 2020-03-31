@@ -31,23 +31,6 @@ const Coat = () => {
     config: config.gentle
   });
   let slideWrap = useRef(null);
-
-  useEffect(() => {
-    setNumOfChildren(slideWrap.current.childNodes.length - 1);
-    let observer = new IntersectionObserver(el => {
-      el[0].isIntersecting ? setVisible(true) : setVisible(false);
-    });
-    observer.observe(containerRef.current);
-  }, []);
-  const containerRef = useRef();
-  const animateBig = useSpring({
-    transform: isVisible ? "translateX(0%)" : "translateX(-100%)",
-    config: config.gentle
-  });
-  const animateSmall = useSpring({
-    transform: isVisible ? "translateX(0%)" : "translateX(100%)",
-    config: config.gentle
-  });
   const handleCarouselSlide = () => {
     console.log(translateBy);
     console.log(numOfChildren * 300 - 300);
@@ -59,6 +42,24 @@ const Coat = () => {
       setSlideCount(0);
     }
   };
+  useEffect(() => {
+    setNumOfChildren(slideWrap.current.childNodes.length - 1);
+    let observer = new IntersectionObserver(el => {
+      el[0].isIntersecting ? setVisible(true) : setVisible(false);
+    });
+    observer.observe(containerRef.current);
+    setTimeout(() => handleCarouselSlide(), 3000);
+  }, [handleCarouselSlide]);
+  const containerRef = useRef();
+  const animateBig = useSpring({
+    transform: isVisible ? "translateX(0%)" : "translateX(-100%)",
+    config: config.gentle
+  });
+  const animateSmall = useSpring({
+    transform: isVisible ? "translateX(0%)" : "translateX(100%)",
+    config: config.gentle
+  });
+
   return (
     <Wrapper ref={containerRef}>
       <CarouselWrapper style={animateSmall}>
