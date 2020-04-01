@@ -19,7 +19,6 @@ const Card = styled.div`
   background-size: cover;
   background-position: center top;
   background-blend-mode: multiply;
-  transition: 10s;
 `;
 const TextContainer = styled.div`
   flex: 1;
