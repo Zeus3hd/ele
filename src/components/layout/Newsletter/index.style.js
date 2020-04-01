@@ -52,6 +52,7 @@ const ActionButton = styled.button`
 const TextBorder = styled.div`
   border: 3rem solid ${colors.black + "88"};
   transform: translateX(50%);
+  mix-blend-mode: hard-light;
 `;
 export {
   Wrapper,
