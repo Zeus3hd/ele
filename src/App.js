@@ -5,6 +5,7 @@ import Promotion from "./components/layout/Promotion";
 import Dress from "./components/layout/Dress";
 import Abaya from "./components/layout/Abaya";
 import Coat from "./components/layout/Coat";
+import Newsletter from "./components/layout/Newsletter";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Dress />
       <Coat />
       <Abaya />
+      <Newsletter />
     </div>
   );
 }
