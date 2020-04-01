@@ -11,6 +11,9 @@ const CardsContainer = styled.div`
   flex: 1;
   display: grid;
   grid-template-columns: 1fr 1fr;
+  @media (max-width: 900px) {
+    display: none;
+  }
 `;
 
 const Card = styled.div`
@@ -41,6 +44,10 @@ const TextParagraph = styled.p`
   text-shadow: 0px 0px 2px ${colors.black};
   transform: translateX(-50%);
   mix-blend-mode: soft-light;
+  @media (max-width: 900px) {
+    width: 100%;
+    transform: translateX(0);
+  }
 `;
 const ActionButton = styled.button`
   font-size: 5rem;
@@ -50,9 +57,14 @@ const ActionButton = styled.button`
   cursor: pointer;
 `;
 const TextBorder = styled.div`
-  border: 3rem solid ${colors.black + "88"};
-  transform: translateX(50%);
+  border: 3rem solid ${colors.black + "99"};
   mix-blend-mode: hard-light;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  @media (max-width: 900px) {
+    transform: translateX(0);
+  }
 `;
 export {
   Wrapper,
