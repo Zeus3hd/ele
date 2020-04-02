@@ -6,7 +6,7 @@ import Dress from "./components/layout/Dress";
 import Abaya from "./components/layout/Abaya";
 import Coat from "./components/layout/Coat";
 import Newsletter from "./components/layout/Newsletter";
-
+import Footer from "./components/shared/Footer";
 function App() {
   return (
     <div className="App">
@@ -16,6 +16,7 @@ function App() {
       <Coat />
       <Abaya />
       <Newsletter />
+      <Footer />
     </div>
   );
 }
