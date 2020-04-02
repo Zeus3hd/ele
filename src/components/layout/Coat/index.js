@@ -32,8 +32,6 @@ const Coat = () => {
   });
   let slideWrap = useRef(null);
   const handleCarouselSlide = () => {
-    console.log(translateBy);
-    console.log(numOfChildren * 300 - 300);
     if (Math.abs(translateBy) <= numOfChildren * 300 - 300 - 300) {
       setTranslateBy(translateBy - 300);
       setSlideCount(slideCount + 1);
