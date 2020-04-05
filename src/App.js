@@ -13,14 +13,14 @@ function App() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    // fetch("/api/product/", {
-    //   method: "GET",
-    // })
-    //   .then((res) => {
-    //     return res.json();
-    //   })
-    //   .then((products) => setData(products))
-    //   .catch((err) => console.log(err));
+    fetch("/api/product/", {
+      method: "GET",
+    })
+      .then((res) => {
+        return res.json();
+      })
+      .then((products) => setData(products))
+      .catch((err) => console.log(err));
   }, []);
   return (
     <div className="App">

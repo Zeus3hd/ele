@@ -23,7 +23,7 @@ const PostProduct = () => {
     const uploadData = new FormData();
     uploadData.append("name", name);
     uploadData.append("img", img);
-    fetch("/api/product/", {
+    fetch("/api/product/create/", {
       mode: "no-cors",
       method: "POST",
       body: uploadData,

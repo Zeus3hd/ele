@@ -47,8 +47,8 @@ const Dress = ({ data }) => {
       el[0].isIntersecting ? setVisible(true) : setVisible(false);
     });
     observer.observe(containerRef.current);
-    setTimeout(() => handleCarouselSlide(), 3000);
-  }, [handleCarouselSlide]);
+    console.log(data);
+  }, []);
   const containerRef = useRef();
   const animateBig = useSpring({
     transform: isVisible ? "translateX(0%)" : "translateX(100%)",
@@ -71,7 +71,11 @@ const Dress = ({ data }) => {
           <SlidesInnerContainer ref={slideWrap}>
             {data.map((item, i) => {
               return (
-                <SingleSlideSmall key={i} img={item} style={animateSlides} />
+                <SingleSlideSmall
+                  key={i}
+                  img={item.img}
+                  style={animateSlides}
+                />
               );
             })}
             <ArrowLeft onClick={handleCarouselSlide}>
