@@ -11,7 +11,7 @@ import {
   SingleSlideSmall,
   SlidesInnerContainer,
   ArrowLeft,
-  ArrowLeftIcon
+  ArrowLeftIcon,
 } from "./index.style";
 import imageOne from "../../../img/img1.jpg";
 import imageTwo from "../../../img/img2.jpg";
@@ -21,7 +21,7 @@ import { faCaretLeft } from "@fortawesome/free-solid-svg-icons";
 import { useSpring, config } from "react-spring";
 
 const items = [imageOne, imageTwo, imageThree, imageFour];
-const Dress = () => {
+const Dress = ({ data }) => {
   const [translateBy, setTranslateBy] = useState(0);
   const [numOfChildren, setNumOfChildren] = useState(0);
   const [slideCount, setSlideCount] = useState(0);
@@ -29,7 +29,7 @@ const Dress = () => {
 
   const animateSlides = useSpring({
     transform: `translateX(-${translateBy}px)`,
-    config: config.gentle
+    config: config.gentle,
   });
   let slideWrap = useRef(null);
   const handleCarouselSlide = () => {
@@ -43,7 +43,7 @@ const Dress = () => {
   };
   useEffect(() => {
     setNumOfChildren(slideWrap.current.childNodes.length - 1);
-    let observer = new IntersectionObserver(el => {
+    let observer = new IntersectionObserver((el) => {
       el[0].isIntersecting ? setVisible(true) : setVisible(false);
     });
     observer.observe(containerRef.current);
@@ -52,11 +52,11 @@ const Dress = () => {
   const containerRef = useRef();
   const animateBig = useSpring({
     transform: isVisible ? "translateX(0%)" : "translateX(100%)",
-    config: config.gentle
+    config: config.gentle,
   });
   const animateSmall = useSpring({
     transform: isVisible ? "translateX(0%)" : "translateX(-100%)",
-    config: config.gentle
+    config: config.gentle,
   });
 
   return (
@@ -69,7 +69,7 @@ const Dress = () => {
         </TitleContainer>
         <SlidesContainer>
           <SlidesInnerContainer ref={slideWrap}>
-            {items.map((item, i) => {
+            {data.map((item, i) => {
               return (
                 <SingleSlideSmall key={i} img={item} style={animateSlides} />
               );
@@ -81,7 +81,7 @@ const Dress = () => {
         </SlidesContainer>
       </CarouselWrapper>
       <BigImageContainer
-        img={items[slideCount]}
+        img={data[slideCount]}
         style={animateBig}
       ></BigImageContainer>
     </Wrapper>
