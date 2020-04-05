@@ -30,8 +30,8 @@ function App() {
           <Route exact path="/">
             <Promotion />
             <Dress data={data} />
-            <Coat />
-            <Abaya />
+            <Coat data={data} />
+            <Abaya data={data} />
             <Newsletter />
           </Route>
           <Route path="/createProduct" component={PostProduct} />

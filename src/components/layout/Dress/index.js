@@ -13,14 +13,10 @@ import {
   ArrowLeft,
   ArrowLeftIcon,
 } from "./index.style";
-import imageOne from "../../../img/img1.jpg";
-import imageTwo from "../../../img/img2.jpg";
-import imageThree from "../../../img/img3.jpg";
-import imageFour from "../../../img/img4.jpg";
+
 import { faCaretLeft } from "@fortawesome/free-solid-svg-icons";
 import { useSpring, config } from "react-spring";
 
-const items = [imageOne, imageTwo, imageThree, imageFour];
 const Dress = ({ data }) => {
   const [translateBy, setTranslateBy] = useState(0);
   const [numOfChildren, setNumOfChildren] = useState(0);
