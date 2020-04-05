@@ -6,6 +6,7 @@ import Dress from "./components/layout/Dress";
 import Abaya from "./components/layout/Abaya";
 import Coat from "./components/layout/Coat";
 import Newsletter from "./components/layout/Newsletter";
+import PostProduct from "./components/layout/PostProduct";
 import Footer from "./components/shared/Footer";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 function App() {
@@ -21,6 +22,7 @@ function App() {
             <Abaya />
             <Newsletter />
           </Route>
+          <Route path="/createProduct" component={PostProduct} />
         </Switch>
         <Footer />
       </Router>
