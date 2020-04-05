@@ -7,16 +7,23 @@ import Abaya from "./components/layout/Abaya";
 import Coat from "./components/layout/Coat";
 import Newsletter from "./components/layout/Newsletter";
 import Footer from "./components/shared/Footer";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 function App() {
   return (
     <div className="App">
-      <Header />
-      <Promotion />
-      <Dress />
-      <Coat />
-      <Abaya />
-      <Newsletter />
-      <Footer />
+      <Router>
+        <Header />
+        <Switch>
+          <Route exact path="/">
+            <Promotion />
+            <Dress />
+            <Coat />
+            <Abaya />
+            <Newsletter />
+          </Route>
+        </Switch>
+        <Footer />
+      </Router>
     </div>
   );
 }
