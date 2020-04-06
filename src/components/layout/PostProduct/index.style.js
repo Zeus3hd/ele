@@ -38,6 +38,7 @@ const SubmitButton = styled.button`
   font-size: 1.3rem;
   border: none;
   border-radius: 0.3rem;
+  cursor: pointer;
 `;
 
 export { ProductForm, TextInput, SubmitButton, FileField };
