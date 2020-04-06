@@ -12,7 +12,7 @@ const PostProduct = () => {
     uploadData.append("name", name);
     uploadData.append("product_type", productType);
     uploadData.append("img", img);
-    fetch("/api/product/create/", {
+    fetch("http://34.67.131.143:8000/api/product/create/", {
       mode: "no-cors",
       method: "POST",
       body: uploadData,

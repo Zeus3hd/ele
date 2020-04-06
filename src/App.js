@@ -11,36 +11,23 @@ import Footer from "./components/shared/Footer";
 import Gallery from "./components/layout/Gallery";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { AnimatedSwitch } from "react-router-transition";
-
+import axios from "axios";
 function App() {
   const [data, setData] = useState([]);
   const [dresses, setDresses] = useState([]);
   const [coats, setCoats] = useState([]);
   const [abayas, setAbayas] = useState([]);
-
+  const [isLoaded, setLoaded] = useState(false);
+  const fetchData = () => {
+    axios.get("http://34.67.131.143:8000/api/product/").then((res) => {
+      setData(res.data);
+      setDresses(res.data.filter((item) => item.product_type === "dress"));
+      setCoats(res.data.filter((item) => item.product_type === "coat"));
+      setAbayas(data.filter((item) => item.product_type === "abaya"));
+    });
+  };
   useEffect(() => {
-    fetch("/api/product/", {
-      method: "GET",
-    })
-      .then((res) => {
-        return res.json();
-      })
-      .then((products) => {
-        setData(products);
-        const fetchedDresses = products.filter(
-          (item) => item.product_type === "dress"
-        );
-        const fetchedCoats = products.filter(
-          (item) => item.product_type === "coat"
-        );
-        const fetchedAbayas = products.filter(
-          (item) => item.product_type === "abaya"
-        );
-        setDresses(fetchedDresses);
-        setCoats(fetchedCoats);
-        setAbayas(fetchedAbayas);
-      })
-      .catch((err) => console.log(err));
+    fetchData();
   }, []);
   return (
     <div className="App">
