@@ -44,7 +44,7 @@ const Dress = ({ data }) => {
     });
     observer.observe(containerRef.current);
     console.log(data);
-  }, []);
+  }, [data]);
   const containerRef = useRef();
   const animateBig = useSpring({
     transform: isVisible ? "translateX(0%)" : "translateX(100%)",
@@ -81,7 +81,8 @@ const Dress = ({ data }) => {
         </SlidesContainer>
       </CarouselWrapper>
       <BigImageContainer
-        img={data[slideCount]}
+        // {...(data ? (img = data[slideCount].img) : null)}
+        img={data.length > 1 ? data[slideCount].img : null}
         style={animateBig}
       ></BigImageContainer>
     </Wrapper>

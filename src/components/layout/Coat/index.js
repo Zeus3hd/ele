@@ -42,7 +42,7 @@ const Coat = ({ data }) => {
       el[0].isIntersecting ? setVisible(true) : setVisible(false);
     });
     observer.observe(containerRef.current);
-  }, []);
+  }, [data]);
   const containerRef = useRef();
   const animateBig = useSpring({
     transform: isVisible ? "translateX(0%)" : "translateX(-100%)",
@@ -79,7 +79,7 @@ const Coat = ({ data }) => {
         </SlidesContainer>
       </CarouselWrapper>
       <BigImageContainer
-        img={data[slideCount]}
+        img={data.length > 1 ? data[slideCount].img : null}
         style={animateBig}
       ></BigImageContainer>
     </Wrapper>

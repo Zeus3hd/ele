@@ -10,7 +10,10 @@ import PostProduct from "./components/layout/PostProduct";
 import Footer from "./components/shared/Footer";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 function App() {
-  const [data, setData] = useState([]);
+  // const [data, setData] = useState([]);
+  const [dresses, setDresses] = useState([]);
+  const [coats, setCoats] = useState([]);
+  const [abayas, setAbayas] = useState([]);
 
   useEffect(() => {
     fetch("/api/product/", {
@@ -19,7 +22,20 @@ function App() {
       .then((res) => {
         return res.json();
       })
-      .then((products) => setData(products))
+      .then((products) => {
+        const fetchedDresses = products.filter(
+          (item) => item.product_type === "dress"
+        );
+        const fetchedCoats = products.filter(
+          (item) => item.product_type === "coat"
+        );
+        const fetchedAbayas = products.filter(
+          (item) => item.product_type === "abaya"
+        );
+        setDresses(fetchedDresses);
+        setCoats(fetchedCoats);
+        setAbayas(fetchedAbayas);
+      })
       .catch((err) => console.log(err));
   }, []);
   return (
@@ -29,9 +45,9 @@ function App() {
         <Switch>
           <Route exact path="/">
             <Promotion />
-            <Dress data={data} />
-            <Coat data={data} />
-            <Abaya data={data} />
+            <Dress data={dresses} />
+            <Coat data={coats} />
+            <Abaya data={abayas} />
             <Newsletter />
           </Route>
           <Route path="/createProduct" component={PostProduct} />
