@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 import Header from "./components/shared/Header";
 import Promotion from "./components/layout/Promotion";
@@ -10,6 +10,34 @@ import PostProduct from "./components/layout/PostProduct";
 import Footer from "./components/shared/Footer";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 function App() {
+  // const [data, setData] = useState([]);
+  const [dresses, setDresses] = useState([]);
+  const [coats, setCoats] = useState([]);
+  const [abayas, setAbayas] = useState([]);
+
+  useEffect(() => {
+    fetch("/api/product/", {
+      method: "GET",
+    })
+      .then((res) => {
+        return res.json();
+      })
+      .then((products) => {
+        const fetchedDresses = products.filter(
+          (item) => item.product_type === "dress"
+        );
+        const fetchedCoats = products.filter(
+          (item) => item.product_type === "coat"
+        );
+        const fetchedAbayas = products.filter(
+          (item) => item.product_type === "abaya"
+        );
+        setDresses(fetchedDresses);
+        setCoats(fetchedCoats);
+        setAbayas(fetchedAbayas);
+      })
+      .catch((err) => console.log(err));
+  }, []);
   return (
     <div className="App">
       <Router>
@@ -17,9 +45,9 @@ function App() {
         <Switch>
           <Route exact path="/">
             <Promotion />
-            <Dress />
-            <Coat />
-            <Abaya />
+            <Dress data={dresses} />
+            <Coat data={coats} />
+            <Abaya data={abayas} />
             <Newsletter />
           </Route>
           <Route path="/createProduct" component={PostProduct} />

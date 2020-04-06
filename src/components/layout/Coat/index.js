@@ -11,24 +11,20 @@ import {
   SingleSlideSmall,
   SlidesInnerContainer,
   ArrowLeft,
-  ArrowLeftIcon
+  ArrowLeftIcon,
 } from "./index.style";
-import imageOne from "../../../img/img5.jpg";
-import imageTwo from "../../../img/img6.jpg";
-import imageThree from "../../../img/img7.jpg";
-import imageFour from "../../../img/img8.jpg";
+
 import { faCaretLeft } from "@fortawesome/free-solid-svg-icons";
 import { useSpring, config } from "react-spring";
 
-const items = [imageOne, imageTwo, imageThree, imageFour];
-const Coat = () => {
+const Coat = ({ data }) => {
   const [translateBy, setTranslateBy] = useState(0);
   const [numOfChildren, setNumOfChildren] = useState(0);
   const [slideCount, setSlideCount] = useState(0);
   const [isVisible, setVisible] = useState(false);
   const animateSlides = useSpring({
     transform: `translateX(-${translateBy}px)`,
-    config: config.gentle
+    config: config.gentle,
   });
   let slideWrap = useRef(null);
   const handleCarouselSlide = () => {
@@ -42,20 +38,19 @@ const Coat = () => {
   };
   useEffect(() => {
     setNumOfChildren(slideWrap.current.childNodes.length - 1);
-    let observer = new IntersectionObserver(el => {
+    let observer = new IntersectionObserver((el) => {
       el[0].isIntersecting ? setVisible(true) : setVisible(false);
     });
     observer.observe(containerRef.current);
-    setTimeout(() => handleCarouselSlide(), 3000);
-  }, [handleCarouselSlide]);
+  }, [data]);
   const containerRef = useRef();
   const animateBig = useSpring({
     transform: isVisible ? "translateX(0%)" : "translateX(-100%)",
-    config: config.gentle
+    config: config.gentle,
   });
   const animateSmall = useSpring({
     transform: isVisible ? "translateX(0%)" : "translateX(100%)",
-    config: config.gentle
+    config: config.gentle,
   });
 
   return (
@@ -68,9 +63,13 @@ const Coat = () => {
         </TitleContainer>
         <SlidesContainer>
           <SlidesInnerContainer ref={slideWrap}>
-            {items.map((item, i) => {
+            {data.map((item, i) => {
               return (
-                <SingleSlideSmall key={i} img={item} style={animateSlides} />
+                <SingleSlideSmall
+                  key={i}
+                  img={item.img}
+                  style={animateSlides}
+                />
               );
             })}
             <ArrowLeft onClick={handleCarouselSlide}>
@@ -80,7 +79,7 @@ const Coat = () => {
         </SlidesContainer>
       </CarouselWrapper>
       <BigImageContainer
-        img={items[slideCount]}
+        img={data.length > 1 ? data[slideCount].img : null}
         style={animateBig}
       ></BigImageContainer>
     </Wrapper>
