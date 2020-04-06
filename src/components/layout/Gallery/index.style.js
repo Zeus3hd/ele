@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { animated } from "react-spring";
+import { Link } from "react-router-dom";
+
 const colors = {
   pink: "#D35C5E",
   blue: "#BBDFDB",
@@ -33,10 +35,11 @@ const NavListItem = styled.li`
     border-bottom: 3px solid ${colors.pink};
   }
 `;
-const NavListLink = styled.a`
+const NavListLink = styled(Link)`
   color: ${colors.black};
   font-size: 1.5rem;
   font-weight: bold;
+  text-decoration: none;
 `;
 const NavLinks = styled.ul`
   background: ${colors.blue + "aa"};

@@ -14,7 +14,7 @@ import {
   NavWrapper,
   NavLinks,
   NavListItem,
-  NavListLink
+  NavListLink,
 } from "./index.style";
 import headerbg from "../../../img/headerbg.jpg";
 import duaImage from "../../../img/headermulti.png";
@@ -26,7 +26,7 @@ const Header = () => {
   const navShow = useSpring({
     right: toggleNav ? "-100%" : "0%",
     from: { right: toggleNav ? "0%" : "-100%" },
-    config: config.gentle
+    config: config.gentle,
   });
 
   return (
@@ -55,16 +55,16 @@ const Header = () => {
         <NavWrapper style={navShow}>
           <NavLinks>
             <NavListItem>
-              <NavListLink>Home Page</NavListLink>
+              <NavListLink to="/">Home Page</NavListLink>
             </NavListItem>
             <NavListItem>
-              <NavListLink>Dresses Collection</NavListLink>
+              <NavListLink to="/gallery">Gallery</NavListLink>
             </NavListItem>
             <NavListItem>
-              <NavListLink>Coats Collection</NavListLink>
+              <NavListLink to="/createProduct">New Post</NavListLink>
             </NavListItem>
             <NavListItem>
-              <NavListLink>Skirts Collection</NavListLink>
+              <NavListLink to="/">Skirts Collection</NavListLink>
             </NavListItem>
           </NavLinks>
         </NavWrapper>

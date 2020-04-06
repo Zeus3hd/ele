@@ -98,16 +98,16 @@ const Gallery = ({ data }) => {
       <NavWrapper style={navShow}>
         <NavLinks>
           <NavListItem>
-            <NavListLink>Home Page</NavListLink>
+            <NavListLink to="/">Home Page</NavListLink>
           </NavListItem>
           <NavListItem>
-            <NavListLink>Dresses Collection</NavListLink>
+            <NavListLink to="/gallery">Gallery</NavListLink>
           </NavListItem>
           <NavListItem>
-            <NavListLink>Coats Collection</NavListLink>
+            <NavListLink to="/createProduct">New Post</NavListLink>
           </NavListItem>
           <NavListItem>
-            <NavListLink>Skirts Collection</NavListLink>
+            <NavListLink to="/">Skirts Collection</NavListLink>
           </NavListItem>
         </NavLinks>
       </NavWrapper>

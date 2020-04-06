@@ -10,6 +10,8 @@ import PostProduct from "./components/layout/PostProduct";
 import Footer from "./components/shared/Footer";
 import Gallery from "./components/layout/Gallery";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { AnimatedSwitch } from "react-router-transition";
+
 function App() {
   const [data, setData] = useState([]);
   const [dresses, setDresses] = useState([]);
@@ -43,7 +45,11 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <Switch>
+        <AnimatedSwitch
+          atEnter={{ opacity: 0 }}
+          atLeave={{ opacity: 0 }}
+          atActive={{ opacity: 1 }}
+        >
           <Route exact path="/">
             <Header />
             <Promotion />
@@ -54,7 +60,7 @@ function App() {
           </Route>
           <Route path="/createProduct" component={PostProduct} />
           <Route path="/gallery" render={() => <Gallery data={data} />} />
-        </Switch>
+        </AnimatedSwitch>
         <Footer />
       </Router>
     </div>
