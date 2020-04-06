@@ -8,9 +8,10 @@ import Coat from "./components/layout/Coat";
 import Newsletter from "./components/layout/Newsletter";
 import PostProduct from "./components/layout/PostProduct";
 import Footer from "./components/shared/Footer";
+import Gallery from "./components/layout/Gallery";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 function App() {
-  // const [data, setData] = useState([]);
+  const [data, setData] = useState([]);
   const [dresses, setDresses] = useState([]);
   const [coats, setCoats] = useState([]);
   const [abayas, setAbayas] = useState([]);
@@ -23,6 +24,7 @@ function App() {
         return res.json();
       })
       .then((products) => {
+        setData(products);
         const fetchedDresses = products.filter(
           (item) => item.product_type === "dress"
         );
@@ -41,9 +43,9 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <Header />
         <Switch>
           <Route exact path="/">
+            <Header />
             <Promotion />
             <Dress data={dresses} />
             <Coat data={coats} />
@@ -51,6 +53,7 @@ function App() {
             <Newsletter />
           </Route>
           <Route path="/createProduct" component={PostProduct} />
+          <Route path="/gallery" render={() => <Gallery data={data} />} />
         </Switch>
         <Footer />
       </Router>
