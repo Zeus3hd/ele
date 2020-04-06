@@ -1,10 +1,12 @@
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { animated } from "react-spring";
+import { Link } from "react-router-dom";
+
 const colors = {
   pink: "#FABEBD",
   blue: "#BBDFDB",
-  black: "#353535"
+  black: "#353535",
 };
 const HeaderContainer = styled.header`
   height: 100vh;
@@ -131,10 +133,11 @@ const NavListItem = styled.li`
     border-bottom: 3px solid ${colors.pink};
   }
 `;
-const NavListLink = styled.a`
+const NavListLink = styled(Link)`
   color: ${colors.black};
   font-size: 1.5rem;
   font-weight: bold;
+  text-decoration: none;
 `;
 export {
   HeaderContainer,
@@ -151,5 +154,5 @@ export {
   NavWrapper,
   NavLinks,
   NavListItem,
-  NavListLink
+  NavListLink,
 };
